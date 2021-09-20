@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bac3"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".Ui.UserType">
 
 
     <TextView
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="R.Qualité"
+                android:text="T.Chantier"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -113,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="C.Service"
+                android:text="R.Qualité"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />

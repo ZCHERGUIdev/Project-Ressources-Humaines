@@ -7,7 +7,7 @@
         android:padding="48dp"
         android:background="@drawable/bac3"
         android:orientation="horizontal"
-        tools:context=".AccountActivity">
+        tools:context=".Ui.AccountActivity">
 
         <ImageView
             android:id="@+id/imageLoginLogo"
@@ -46,26 +46,27 @@
             android:text=""
             />
         <Button
-            android:id="@+id/btnSignupLogin"
+            android:id="@+id/textViewSignupLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textPassword"
             android:layout_marginTop="10dp"
             android:backgroundTint="#010101"
-            android:text="Sign Up"
+            android:text="Login"
             android:textColor="#E3DBC8"
             android:textSize="20sp"
             android:onClick="doSignupOrLogin"
             />
 
         <TextView
-            android:id="@+id/textViewSignupLogin"
+            android:id="@+id/btnSignupLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnSignupLogin"
+            android:layout_below="@id/textViewSignupLogin"
             android:layout_marginTop="20sp"
             android:onClick="ActiveDefaultBehaviour"
             android:text="LogIn"
+            android:visibility="gone"
             android:textAlignment="center"
             android:textColor="#010101" />
 
