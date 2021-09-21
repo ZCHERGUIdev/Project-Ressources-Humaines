@@ -36,8 +36,8 @@ class AccountActivity : AppCompatActivity() {
         progdialog = ProgressDialog(this)
         progdialog?.setMessage("Pleaze Wait...")
         progdialog?.setCancelable(true)
-        btnSignupLogin.text = AccountStatus.LOGIN.toString()
-        textViewSignupLogin.text = AccountStatus.SIGNUP.toString()
+       // btnSignupLogin.text = AccountStatus.LOGIN.toString()
+       // textViewSignupLogin.text = AccountStatus.SIGNUP.toString()
         if (usedao?.checkLoggedIn()!!){
             Gotohomepage()
         }

@@ -14,12 +14,14 @@ class UserType : AppCompatActivity() {
 
         supportActionBar!!.hide()
         cproject.setOnClickListener {
-           startActivity(Intent(this,HMORHAActivity::class.java))
+           startActivity(Intent(this,ChefDeProjectActivity::class.java))
         }
-        respoQali.setOnClickListener {
-            startActivity(Intent(this,HMORHAActivity::class.java))
-        }
-        respo3.setOnClickListener {
+
+        tqualité.setOnClickListener {
             startActivity(Intent(this,TChantierActivity::class.java))        }
+        respoQali.setOnClickListener {
+            startActivity(Intent(this,ResponsableQActivity::class.java))
+        }
     }
+
 }
