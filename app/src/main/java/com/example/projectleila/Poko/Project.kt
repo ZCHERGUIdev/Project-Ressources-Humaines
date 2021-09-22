@@ -16,5 +16,8 @@ class Project {
     var TYP_RESSOURCE: String? = null
     var COD_RSRC: String? = null
     var LIB_RSRC: String? = null
+    var H_TRA:Int?=null
+    var H_ARR:Int?=null
+    var CAUSE:String?=null
 
 }

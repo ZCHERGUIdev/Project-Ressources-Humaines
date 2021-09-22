@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.projectleila.Dao.ProjectDao
 import com.example.projectleila.Poko.Project
 import com.example.projectleila.R
@@ -15,6 +16,7 @@ class TChantierActivity : AppCompatActivity() {
     var projectDao: ProjectDao? = null
     var lots=ArrayList<String>()
     var tachs=ArrayList<String>()
+    var objIds=ArrayList<String>()
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
     var adapter: ArrayAdapter<String>?=null
@@ -24,11 +26,15 @@ class TChantierActivity : AppCompatActivity() {
         projectDao = ProjectDao()
         supportActionBar!!.hide()
         listOfProjectString!!.add("Finding Project...")
+       // Toast.makeText(this, "id"+objIds, Toast.LENGTH_SHORT).show()
+
+
         lstProject.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
             var myintet = Intent(this.baseContext, LotssActivity::class.java)
             myintet.putExtra("num Lots",lots[i])
             myintet.putExtra("num tach",tachs[i])
-
+            myintet.putExtra("objId",objIds[i])
+            //Toast.makeText(this, "id"+objIds[i], Toast.LENGTH_SHORT).show()
             startActivity(myintet)
         })
 
@@ -53,9 +59,9 @@ class TChantierActivity : AppCompatActivity() {
                     listOfProjectString.add("Project "+ i)
                     lots.add(listoforders[i].NUM_LOT.toString())
                     tachs.add(listoforders[i].NUM_TACHE.toString())
+                    objIds.add(listoforders[i].objectId.toString())
                 }
                 adapter?.notifyDataSetChanged()
-
 
             }
         })

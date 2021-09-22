@@ -16,6 +16,7 @@ class LotssActivity : AppCompatActivity() {
     var listOfTachString=ArrayList<String>()
     var adapter: ArrayAdapter<String>?=null
     var adapter1: ArrayAdapter<String>?=null
+    val ids:ArrayList<String>?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lots)
@@ -23,6 +24,7 @@ class LotssActivity : AppCompatActivity() {
         var myintet=getIntent()
      val lots=  myintet.getStringExtra("num Lots")
      val tach= myintet.getStringExtra("num tach")
+
 
         // list des lots
      listOfLotsString.add(lots.toString())

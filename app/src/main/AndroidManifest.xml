@@ -10,9 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectLeila">
-        <activity android:name=".Ui.LotssActivity"></activity>
+        <activity android:name=".Ui.HAActivity">
+
+        </activity>
+        <activity android:name=".Ui.HTActivity" />
+        <activity android:name=".Ui.LotssActivity" />
         <activity android:name=".Ui.HMORHAActivity" />
-        <activity android:name=".Ui.TChantierActivity">
+        <activity android:name=".Ui.TChantierActivity" >
 
         </activity>
         <activity android:name=".Ui.ResponsableQActivity" />

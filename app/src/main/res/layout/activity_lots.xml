@@ -19,6 +19,7 @@
         android:orientation="vertical"
         android:layout_below="@id/appbar"
         android:layout_marginTop="5dp">
+
         <EditText
             android:id="@+id/txtLotInpute"
             android:layout_width="wrap_content"
@@ -29,6 +30,34 @@
             android:inputType="textPersonName"
             android:ems="10"
             />
+        <LinearLayout
+            android:id="@+id/lstLotLayot"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:layout_below="@id/include2"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/txtNumLot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:gravity="center"
+                android:text="List De Lots (0)"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteY="170dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/black" />
+
+        </LinearLayout>
         <ListView
             android:id="@+id/lstLots"
             android:layout_width="match_parent"
@@ -55,6 +84,34 @@
             android:inputType="textPersonName"
             android:ems="10"
             />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:layout_below="@id/include2"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/txtNumTach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:gravity="center"
+                android:text="List Des Taches (0)"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteY="170dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/black" />
+
+        </LinearLayout>
         <ListView
             android:id="@+id/lstTach"
             android:layout_width="match_parent"
