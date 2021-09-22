@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.LotssActivity">
+
+
+       <include
+           android:id="@+id/appbar"
+           layout="@layout/appbat"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_below="@id/appbar"
+        android:layout_marginTop="5dp">
+        <EditText
+            android:id="@+id/txtLotInpute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Entre N Lot"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:ems="10"
+            />
+        <ListView
+            android:id="@+id/lstLots"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txtLotInpute"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginTop="30dp">
+        <EditText
+            android:id="@+id/txtTachInpute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Entre N Tach"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:ems="10"
+            />
+        <ListView
+            android:id="@+id/lstTach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txtLotInpute"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

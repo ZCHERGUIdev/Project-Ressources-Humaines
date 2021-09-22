@@ -1,5 +1,6 @@
 package com.example.projectleila.Ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +13,8 @@ import kotlinx.android.synthetic.main.activity_tchantier.*
 
 class ChefDeProjectActivity : AppCompatActivity() {
     var projectDao: ProjectDao? = null
-
+    var lots=ArrayList<String>()
+    var tachs=ArrayList<String>()
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
     var adapter: ArrayAdapter<String>?=null
@@ -23,8 +25,11 @@ class ChefDeProjectActivity : AppCompatActivity() {
         supportActionBar!!.hide()
         listOfProjectString!!.add("Finding Project...")
         lstProject.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
-            //   var myintet = Intent(this.baseContext, DriverActivity::class.java)
-            //  startActivity(myintet)
+            var myintet = Intent(this.baseContext, LotssActivity::class.java)
+            myintet.putExtra("num Lots",lots[i])
+            myintet.putExtra("num tach",tachs[i])
+
+            startActivity(myintet)
         })
 
         adapter= ArrayAdapter(this.baseContext,R.layout.projectviewcell,R.id.txtTip,listOfProjectString)
@@ -46,6 +51,8 @@ class ChefDeProjectActivity : AppCompatActivity() {
                 {
 
                     listOfProjectString.add("Project "+ i)
+                    lots.add(listoforders[i].NUM_LOT.toString())
+                    tachs.add(listoforders[i].NUM_TACHE.toString())
                 }
                 adapter?.notifyDataSetChanged()
                 //  progdialog?.hide()

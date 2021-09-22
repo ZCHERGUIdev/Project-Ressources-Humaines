@@ -10,18 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectLeila">
-        <activity android:name=".Ui.HMORHAActivity"></activity>
-        <activity android:name=".Ui.TChantierActivity" >
+        <activity android:name=".Ui.LotssActivity"></activity>
+        <activity android:name=".Ui.HMORHAActivity" />
+        <activity android:name=".Ui.TChantierActivity">
+
+        </activity>
+        <activity android:name=".Ui.ResponsableQActivity" />
+        <activity android:name=".Ui.ChefDeProjectActivity" />
+        <activity android:name=".Ui.AccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Ui.ResponsableQActivity" />
-        <activity android:name=".Ui.ChefDeProjectActivity" />
-        <activity android:name=".Ui.AccountActivity">
-
         </activity>
         <activity android:name=".Ui.UserType" />
     </application>
