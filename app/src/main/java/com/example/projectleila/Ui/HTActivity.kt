@@ -2,7 +2,6 @@ package com.example.projectleila.Ui
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectleila.Dao.ProjectDao
@@ -15,20 +14,29 @@ import kotlinx.android.synthetic.main.activity_tchantier.*
 
 class HTActivity : AppCompatActivity() {
     var projectDao: ProjectDao? = null
-    var objIds=ArrayList<String>()
-    var id:String?=null
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
+
+    var tachs=ArrayList<String>()
+    var code=ArrayList<String>()
+    var type=ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_htactivity)
-        //getProject()
+        var myintet=getIntent()
+        val objId= myintet.getStringExtra("objId")
+        val code= myintet.getStringExtra("code")
+        val type= myintet.getStringExtra("type")
 
-
+        txtCode.text=""+code
+        txtType.text=" "+type
+        projectDao = ProjectDao()
+        getProject()
+        Toast.makeText(this, "id "+objId, Toast.LENGTH_LONG).show()
 
         btnSave.setOnClickListener {
             val query = ParseQuery.getQuery<ParseObject>("Project")
-            query.whereEqualTo("objectId","3mjCDqaVvu")
+            query.whereEqualTo("objectId",objId)
             query.getFirstInBackground(object : GetCallback<ParseObject> {
                 override fun done(`object`: ParseObject?, e: ParseException?) {
                     if (e == null) {
@@ -59,23 +67,23 @@ class HTActivity : AppCompatActivity() {
     }
 
 
-   /* fun getProject(){
-        //get the near by orders to driver
-        projectDao?.getNearbyRecords(Project(),{ listoforders ->
-            Log.d("Project size",listoforders.size.toString())
+    fun getProject(){
+        //get the near by project
+        projectDao?.getNearbyRecords(Project(),{ listofprojects ->
+            Log.d("Project size",listofprojects.size.toString())
             //get pendding+whitoutDrivers
-            if (listoforders.size>0)
+            if (listofprojects.size>0)
             {
-                txtProject.text="List De Project ("+listoforders.size+")"
+                //txtHT.text="List De Project ("+listofprojects.size+")"
                 listOfProjectString.clear()
-                for (i in 0..listoforders.size-1)
+                for (i in 0..listofprojects.size-1)
                 {
                     listOfProjectString.add("Project "+ i)
-                    //objIds.add(listoforders[i].objectId.toString())
+
                 }
 
 
             }
         })
-    }*/
+    }
 }

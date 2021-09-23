@@ -12,9 +12,9 @@
            layout="@layout/appbat"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="220dp"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_below="@id/appbar"
@@ -31,7 +31,7 @@
             android:ems="10"
             />
         <LinearLayout
-            android:id="@+id/lstLotLayot"
+            android:id="@+id/lstLotLayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center|left"
@@ -67,12 +67,69 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="220dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_below="@id/linearLayout"
+        android:layout_below="@id/linearLayout1"
+        android:layout_marginTop="5dp">
+
+        <EditText
+            android:id="@+id/txtPhaseInpute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Entre N Phase"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:ems="10"
+            />
+        <LinearLayout
+            android:id="@+id/lstPhaseLayot"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:layout_below="@id/include2"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/txtNumPhase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:gravity="center"
+                android:text="List De Phase (0)"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteY="170dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/black" />
+
+        </LinearLayout>
+        <ListView
+            android:id="@+id/lstPhase"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txtLotInpute"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_below="@id/linearLayout2"
         android:layout_marginTop="30dp">
         <EditText
             android:id="@+id/txtTachInpute"

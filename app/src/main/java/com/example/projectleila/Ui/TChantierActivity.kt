@@ -16,6 +16,9 @@ class TChantierActivity : AppCompatActivity() {
     var projectDao: ProjectDao? = null
     var lots=ArrayList<String>()
     var tachs=ArrayList<String>()
+    var code=ArrayList<String>()
+    var type=ArrayList<String>()
+    var phase=ArrayList<String>()
     var objIds=ArrayList<String>()
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
@@ -33,8 +36,11 @@ class TChantierActivity : AppCompatActivity() {
             var myintet = Intent(this.baseContext, LotssActivity::class.java)
             myintet.putExtra("num Lots",lots[i])
             myintet.putExtra("num tach",tachs[i])
+            myintet.putExtra("code",code[i])
+            myintet.putExtra("type",type[i])
             myintet.putExtra("objId",objIds[i])
-            //Toast.makeText(this, "id"+objIds[i], Toast.LENGTH_SHORT).show()
+            myintet.putExtra("phase",phase[i])
+
             startActivity(myintet)
         })
 
@@ -59,7 +65,10 @@ class TChantierActivity : AppCompatActivity() {
                     listOfProjectString.add("Project "+ i)
                     lots.add(listoforders[i].NUM_LOT.toString())
                     tachs.add(listoforders[i].NUM_TACHE.toString())
+                    code.add(listoforders[i].COD_MR.toString())
+                    type.add(listoforders[i].TYP_RESSOURCE.toString())
                     objIds.add(listoforders[i].objectId.toString())
+                    phase.add(listoforders[i].NUM_PHAS.toString())
                 }
                 adapter?.notifyDataSetChanged()
 
