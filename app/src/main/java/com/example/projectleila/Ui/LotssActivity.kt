@@ -19,7 +19,7 @@ class LotssActivity : AppCompatActivity() {
     var adapter: ArrayAdapter<String>?=null
     var adapter1: ArrayAdapter<String>?=null
     var adapter2: ArrayAdapter<String>?=null
-    val ids:ArrayList<String>?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lots)
@@ -31,6 +31,10 @@ class LotssActivity : AppCompatActivity() {
      val type= myintet.getStringExtra("type")
      val objId= myintet.getStringExtra("objId")
      val phase= myintet.getStringExtra("phase")
+     val userType= myintet.getStringExtra("userType")
+     val HT= myintet.getStringExtra("HT")
+    // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
+
 
         txtNumLot.text="List De Lots (1)"
         txtNumTach.text="List De Tach (1)"
@@ -53,6 +57,8 @@ class LotssActivity : AppCompatActivity() {
             myintet.putExtra("objId",objId)
             myintet.putExtra("code",code)
             myintet.putExtra("type",type)
+            myintet.putExtra("userType",userType)
+            myintet.putExtra("HT",HT)
             startActivity(myintet)
         })
         lstTach.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
@@ -60,6 +66,7 @@ class LotssActivity : AppCompatActivity() {
             myintet.putExtra("objId",objId)
             myintet.putExtra("code",code)
             myintet.putExtra("type",type)
+            myintet.putExtra("userType",userType)
             startActivity(myintet)
         })
 

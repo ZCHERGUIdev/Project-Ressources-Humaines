@@ -7,9 +7,9 @@
         android:padding="48dp"
         android:background="@drawable/bac3"
         android:orientation="horizontal"
-        tools:context=".Ui.AccountActivity">
+        tools:context=".Ui.Account.AccountActivity">
 
-        <ImageView
+    <ImageView
             android:id="@+id/imageLoginLogo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -80,6 +80,4 @@
             android:rotation="0" />
 
 
-
-
-    </RelativeLayout>
+</RelativeLayout>

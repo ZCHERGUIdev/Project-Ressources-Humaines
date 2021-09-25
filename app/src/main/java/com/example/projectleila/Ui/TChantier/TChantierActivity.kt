@@ -1,4 +1,4 @@
-package com.example.projectleila.Ui
+package com.example.projectleila.Ui.TChantier
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.projectleila.Dao.ProjectDao
 import com.example.projectleila.Poko.Project
 import com.example.projectleila.R
+import com.example.projectleila.Ui.LotssActivity
 import kotlinx.android.synthetic.main.activity_tchantier.*
 
 class TChantierActivity : AppCompatActivity() {
@@ -23,9 +24,11 @@ class TChantierActivity : AppCompatActivity() {
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
     var adapter: ArrayAdapter<String>?=null
+    var  userType:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tchantier)
+       userType="tchantier"
         projectDao = ProjectDao()
         supportActionBar!!.hide()
         listOfProjectString!!.add("Finding Project...")
@@ -40,6 +43,7 @@ class TChantierActivity : AppCompatActivity() {
             myintet.putExtra("type",type[i])
             myintet.putExtra("objId",objIds[i])
             myintet.putExtra("phase",phase[i])
+            myintet.putExtra("userType",userType)
 
             startActivity(myintet)
         })
@@ -51,7 +55,6 @@ class TChantierActivity : AppCompatActivity() {
 
 
     fun getProject(){
-        //get the near by orders to driver
         projectDao?.getNearbyRecords(Project(),{listoforders ->
             Log.d("Project size",listoforders.size.toString())
             //get pendding+whitoutDrivers
@@ -72,6 +75,8 @@ class TChantierActivity : AppCompatActivity() {
                 }
                 adapter?.notifyDataSetChanged()
 
+            }else{
+                Toast.makeText(this, "db is empty", Toast.LENGTH_SHORT).show()
             }
         })
     }

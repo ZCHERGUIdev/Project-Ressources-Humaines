@@ -19,20 +19,37 @@ class HMORHAActivity : AppCompatActivity() {
         val objId1= myintet.getStringExtra("objId")
         val code= myintet.getStringExtra("code")
         val type= myintet.getStringExtra("type")
-        Toast.makeText(this, "id "+objId1, Toast.LENGTH_SHORT).show()
+        val userType= myintet.getStringExtra("userType")
+        val HT= myintet.getStringExtra("HT")
+       // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
         HM.setOnClickListener {
             var myintet =Intent(this,HTActivity::class.java)
             myintet.putExtra("objId",objId1)
             myintet.putExtra("code",code)
             myintet.putExtra("type",type)
+            myintet.putExtra("userType",userType)
+            myintet.putExtra("HT",HT)
             startActivity(myintet)
         }
         HA.setOnClickListener {
             var myintet =Intent(this,HAActivity::class.java)
+            myintet.putExtra("objId",objId1)
+            myintet.putExtra("code",code)
+            myintet.putExtra("type",type)
+            myintet.putExtra("userType",userType)
             startActivity(myintet)
         }
 
     }
+
+
+    fun gotoHome(view: View){
+        startActivity(Intent(this,LotssActivity::class.java))
+    }
+    fun gotoHisto(view: View){
+        startActivity(Intent(this,HistoriqueActivity::class.java))
+    }
+
 
 
 

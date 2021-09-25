@@ -1,6 +1,8 @@
 package com.example.projectleila.Dao
 
+import android.app.ProgressDialog
 import android.util.Log
+import android.widget.Toast
 import com.example.projectleila.Poko.User
 import com.parse.ParseException
 import com.parse.ParseObject
@@ -10,9 +12,12 @@ import com.parse.SignUpCallback
 class UserDao {
 
     var parseuser:ParseUser?=null
+    var progdialog: ProgressDialog? = null
+
     constructor() {
         parseuser= ParseUser()
     }
+
     //sign up=regester=new account
     //sign in=login
     //sign out
@@ -59,14 +64,13 @@ class UserDao {
     }
 
     fun LogInWithCallback(user: User, Callback: (returnedUser:User)->Unit) {
-
         ParseUser.logInInBackground(user.userName,user.password,
             {pUser,ex->
                 if (pUser!=null){
                     Log.i("singin","sign in succesfully")
                     Callback(tosinglerecord(pUser,user.password.toString()))
                 }else{
-                    Log.i("signin","Failed"+ex.printStackTrace())
+                  //  Toast.makeText(, " something wrong", Toast.LENGTH_SHORT).show()
                     Callback(User())
                 }
             })
@@ -83,6 +87,7 @@ class UserDao {
                     //done
                     Log.i("app","sign up succesfully")
                     Callback(user)
+
                 }else{
                     Log.e("Signup","Failed"+e.message.toString())
                     Callback(User())

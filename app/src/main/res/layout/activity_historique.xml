@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.TChantier.TChantierActivity">
+    tools:context=".Ui.HistoriqueActivity">
 
     <include
         android:id="@+id/include2"
         layout="@layout/appbat" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutHisTo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center|left"
@@ -20,7 +20,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/txtProject"
+            android:id="@+id/txtProjectHisto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
@@ -41,12 +41,10 @@
 
 
     <ListView
-        android:id="@+id/lstProject"
+        android:id="@+id/lstProjectHisto"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/linearLayout"
-       />
-
-
+        android:layout_below="@id/linearLayoutHisTo"
+        />
 </RelativeLayout>

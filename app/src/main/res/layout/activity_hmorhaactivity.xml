@@ -12,31 +12,54 @@
         android:id="@+id/HM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
-        android:textColor="#010101"
-        android:text="Pointage Travail"
+        android:layout_marginTop="280dp"
         android:background="@drawable/circle"
+        android:text="Pointage Travail"
+        android:textColor="#010101"
         android:textSize="24sp"
-        android:onClick="goToHTActivity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <Button
         android:id="@+id/HA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#010101"
         android:background="@drawable/circle"
+        android:backgroundTint="#010101"
         android:text="Pointage arrét"
         android:textColor="#E3DBC8"
         android:textSize="24sp"
-        android:onClick="goToHAActivity"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HM" />
+        app:layout_constraintTop_toBottomOf="@+id/HM"
+        app:layout_constraintVertical_bias="0.003" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:background="#00B0FF"
+        android:onClick="gotoHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <ImageView
+        android:id="@+id/imgHisto"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:onClick="gotoHisto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_history_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

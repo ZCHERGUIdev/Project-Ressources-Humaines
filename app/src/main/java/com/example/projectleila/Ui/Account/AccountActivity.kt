@@ -1,4 +1,4 @@
-package com.example.projectleila.Ui
+package com.example.projectleila.Ui.Account
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import com.example.projectleila.Dao.UserDao
 import com.example.projectleila.Poko.User
 import com.example.projectleila.R
+import com.example.projectleila.Ui.UserType
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_account.*
 
@@ -23,7 +23,7 @@ class AccountActivity : AppCompatActivity() {
         LOGIN("login"), SIGNUP("signup")
     }
     var status: AccountStatus = AccountStatus.LOGIN
-    fun Gotohomepage() {startActivity(Intent(this.baseContext,UserType::class.java)) }
+    fun Gotohomepage() {startActivity(Intent(this.baseContext, UserType::class.java)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
