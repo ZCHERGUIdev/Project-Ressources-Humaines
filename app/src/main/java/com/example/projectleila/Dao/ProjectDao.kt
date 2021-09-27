@@ -252,6 +252,8 @@ class ProjectDao {
         Project.HT=parseProject.getString("HT")
         Project.HA=parseProject.getString("HA")
         Project.C=parseProject.getString("C")
+        Project.createdAt=parseProject.createdAt
+
 
         return Project
     }

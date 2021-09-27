@@ -21,6 +21,8 @@ class HMORHAActivity : AppCompatActivity() {
         val type= myintet.getStringExtra("type")
         val userType= myintet.getStringExtra("userType")
         val HT= myintet.getStringExtra("HT")
+        val date= myintet.getStringExtra("date")
+
        // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
         HM.setOnClickListener {
             var myintet =Intent(this,HTActivity::class.java)
@@ -29,6 +31,7 @@ class HMORHAActivity : AppCompatActivity() {
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
             myintet.putExtra("HT",HT)
+            myintet.putExtra("date",date)
             startActivity(myintet)
         }
         HA.setOnClickListener {
@@ -37,6 +40,7 @@ class HMORHAActivity : AppCompatActivity() {
             myintet.putExtra("code",code)
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
+            myintet.putExtra("date",date)
             startActivity(myintet)
         }
 

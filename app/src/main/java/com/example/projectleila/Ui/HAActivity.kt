@@ -22,10 +22,12 @@ class HAActivity : AppCompatActivity() {
         val code= myintet.getStringExtra("code")
         val type= myintet.getStringExtra("type")
         val userType= myintet.getStringExtra("userType")
-        Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
+        val date= myintet.getStringExtra("date")
+       // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
 
         txtCode2.text=""+code
         txtType2.text=" "+type
+        txtDate2.text="Date :"+date!!.subSequence(0,20)
         if (userType=="chefProject"){
             txtHarret.text=txtHarret.text
             txtCause.text=txtCause.text

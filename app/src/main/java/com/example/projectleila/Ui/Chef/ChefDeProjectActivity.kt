@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.projectleila.Dao.ProjectDao
 import com.example.projectleila.Poko.Project
 import com.example.projectleila.R
 import com.example.projectleila.Ui.LotssActivity
 import kotlinx.android.synthetic.main.activity_tchantier.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ChefDeProjectActivity : AppCompatActivity() {
     var projectDao: ProjectDao? = null
@@ -21,6 +24,7 @@ class ChefDeProjectActivity : AppCompatActivity() {
     var phase=ArrayList<String>()
     var objIds=ArrayList<String>()
     var HT=ArrayList<String>()
+    var date=ArrayList<String>()
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
     var adapter: ArrayAdapter<String>?=null
@@ -38,10 +42,12 @@ class ChefDeProjectActivity : AppCompatActivity() {
             myintet.putExtra("num tach",tachs[i])
             myintet.putExtra("code",code[i])
             myintet.putExtra("type",type[i])
+
             myintet.putExtra("objId",objIds[i])
             myintet.putExtra("phase",phase[i])
             myintet.putExtra("HA",HT[i])
             myintet.putExtra("userType",userType)
+            myintet.putExtra("date",date[i])
 
             startActivity(myintet)
         })
@@ -62,7 +68,6 @@ class ChefDeProjectActivity : AppCompatActivity() {
                 listOfProjectString.clear()
                 for (i in 0..listoforders.size-1)
                 {
-
                     listOfProjectString.add("Project "+ i)
                     lots.add(listoforders[i].NUM_LOT.toString())
                     tachs.add(listoforders[i].NUM_TACHE.toString())
@@ -71,6 +76,7 @@ class ChefDeProjectActivity : AppCompatActivity() {
                     objIds.add(listoforders[i].objectId.toString())
                     phase.add(listoforders[i].NUM_PHAS.toString())
                     HT.add(listoforders[i].HT.toString())
+                    date.add(listoforders[i].createdAt.toString())
                 }
                 adapter?.notifyDataSetChanged()
                 //  progdialog?.hide()

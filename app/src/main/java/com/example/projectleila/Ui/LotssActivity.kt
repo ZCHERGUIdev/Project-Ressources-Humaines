@@ -33,7 +33,9 @@ class LotssActivity : AppCompatActivity() {
      val phase= myintet.getStringExtra("phase")
      val userType= myintet.getStringExtra("userType")
      val HT= myintet.getStringExtra("HT")
-    // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
+     val date= myintet.getStringExtra("date")
+
+    // Toast.makeText(this, "date  "+date, Toast.LENGTH_SHORT).show()
 
 
         txtNumLot.text="List De Lots (1)"
@@ -59,6 +61,8 @@ class LotssActivity : AppCompatActivity() {
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
             myintet.putExtra("HT",HT)
+            myintet.putExtra("date",date)
+
             startActivity(myintet)
         })
         lstTach.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
@@ -67,6 +71,7 @@ class LotssActivity : AppCompatActivity() {
             myintet.putExtra("code",code)
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
+            myintet.putExtra("date",date)
             startActivity(myintet)
         })
 

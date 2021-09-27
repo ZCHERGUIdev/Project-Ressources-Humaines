@@ -1,5 +1,8 @@
 package com.example.projectleila.Poko
 
+import java.sql.Date
+import java.util.*
+
 class Project {
 
     //
@@ -19,5 +22,6 @@ class Project {
     var HT:String?=null
     var HA:String?=null
     var C:String?=null
+    var createdAt:java.util.Date?=null
 
 }

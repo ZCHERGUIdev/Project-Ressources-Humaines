@@ -32,6 +32,7 @@ class HTActivity : AppCompatActivity() {
         val type= myintet.getStringExtra("type")
         val userType= myintet.getStringExtra("userType")
         val HT= myintet.getStringExtra("HT")
+        val date= myintet.getStringExtra("date")
 
         if (userType=="chefProject"){
             //txtHT.text.replace(0,txtHT.textSize.toInt(),HT.toString())
@@ -42,6 +43,7 @@ class HTActivity : AppCompatActivity() {
 
         txtCode.text=""+code
         txtType.text=" "+type
+        txtDate.text="Date :"+date!!.subSequence(0,20)
         projectDao = ProjectDao()
       //  getProject()
        // Toast.makeText(this, "i'am  "+userType, Toast.LENGTH_LONG).show()
