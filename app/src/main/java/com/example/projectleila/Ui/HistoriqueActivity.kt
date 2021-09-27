@@ -23,8 +23,8 @@ class HistoriqueActivity : AppCompatActivity() {
     var adapter: ArrayAdapter<String>?=null
     var code=ArrayList<String>()
     var type=ArrayList<String>()
-    var HT=ArrayList<String>()
-    var Ha=ArrayList<String>()
+    var heureT=ArrayList<String>()
+    var heureA=ArrayList<String>()
     var HaCause=ArrayList<String>()
 
 
@@ -38,15 +38,15 @@ class HistoriqueActivity : AppCompatActivity() {
         // get project
         adapter= ArrayAdapter(this.baseContext,R.layout.projectviewcell,R.id.txtTip,listOfProjectString)
         lstProjectHisto.adapter=adapter
-        Toast.makeText(this, "code :"+code+"htaiveail:"+HT, Toast.LENGTH_SHORT).show()
         lstProjectHisto.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
             var view:View
             view=layoutInflater.inflate(R.layout.info_worker,null)
             view.txtProjectNumber.text="Project "+i
             view.codevalue.text=code[i]
-            view.txtHT2.text=type[i]
-            view.htravaille.text=HT[i]
-            view.txtHa.text=Ha[i]
+            view.txtHuereT.text=type[i]
+        //    Toast.makeText(this,"htaiveail:"+heureT[i], Toast.LENGTH_SHORT).show()
+            view.htravaille.text=heureT[i]
+            view.txtHa.text=heureA[i]
             view.hacause.text=HaCause[i]
             view.btnOk.setOnClickListener{
                 startActivity(Intent(this,HistoriqueActivity::class.java))
@@ -74,7 +74,7 @@ class HistoriqueActivity : AppCompatActivity() {
 
     fun getProject(){
         projectDao?.getNearbyRecords(Project(),{ listoforders ->
-            Log.d("Project size",listoforders.size.toString())
+            //Log.d("Project size",listoforders.size.toString())
 
             if (listoforders.size>0)
             {
@@ -82,17 +82,12 @@ class HistoriqueActivity : AppCompatActivity() {
 
                 listOfProjectString.clear()
                 for (i in 0..listoforders.size-1)
-                {
-
-                    listOfProjectString.add("Project "+ i)
+                { listOfProjectString.add("Project "+ i)
                     code.add(listoforders[i].COD_MR.toString())
                     type.add(listoforders[i].TYP_RESSOURCE.toString())
-                    HT.add(listoforders[i].HT.toString())
-                    Ha.add(listoforders[i].HA.toString())
+                    heureT.add(listoforders[i].HT.toString())
+                    heureA.add(listoforders[i].HA.toString())
                     HaCause.add(listoforders[i].C.toString())
-
-
-
                 }
                 adapter?.notifyDataSetChanged()
                 //  progdialog?.hide()

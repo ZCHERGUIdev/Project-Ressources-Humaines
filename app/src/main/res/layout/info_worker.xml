@@ -65,12 +65,12 @@
                 android:text="Type :"
                 />
             <TextView
-                android:id="@+id/txtHT2"
+                android:id="@+id/txtHuereT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="37dp"
-                android:text="Personel"
+                android:text=".."
                 />
         </LinearLayout>
         <LinearLayout
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="87dp"
-                android:text="5H"
+                android:text=".."
                 />
         </LinearLayout>
         <LinearLayout
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="87dp"
-                android:text="5H"
+                android:text=".."
                 />
         </LinearLayout>
         <LinearLayout
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="87dp"
-                android:text="problem de "
+                android:text="p"
                 />
         </LinearLayout>
 

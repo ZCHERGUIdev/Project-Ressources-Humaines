@@ -249,8 +249,13 @@ class ProjectDao {
         Project.TYP_RESSOURCE=parseProject.getString("TYP_RESSOURCE")
         Project.COD_RSRC=parseProject.getString("COD_RSRC")
         Project.LIB_RSRC=parseProject.getString("LIB_RSRC")
+        Project.HT=parseProject.getString("HT")
+        Project.HA=parseProject.getString("HA")
+        Project.C=parseProject.getString("C")
+
         return Project
     }
+
 
     fun getNearbyRecords(Project: Project, callback:(listofRecords:MutableList<Project>)->Unit) {
 
