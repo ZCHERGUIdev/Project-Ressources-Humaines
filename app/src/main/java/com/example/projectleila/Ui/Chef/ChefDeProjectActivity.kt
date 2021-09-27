@@ -70,7 +70,7 @@ class ChefDeProjectActivity : AppCompatActivity() {
                     type.add(listoforders[i].TYP_RESSOURCE.toString())
                     objIds.add(listoforders[i].objectId.toString())
                     phase.add(listoforders[i].NUM_PHAS.toString())
-                    HT.add(listoforders[i].H_TRA.toString())
+                    HT.add(listoforders[i].HT.toString())
                 }
                 adapter?.notifyDataSetChanged()
                 //  progdialog?.hide()

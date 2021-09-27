@@ -2,11 +2,11 @@ package com.example.projectleila.Dao
 
 import android.util.Log
 import com.example.projectleila.Poko.Project
+import com.example.projectleila.Ui.Account.AccountActivity
 import com.parse.*
 
 class ProjectDao {
     var userdao:UserDao?=null
-
     constructor() {
         var userDao=UserDao()
         var obj = ParseObject(Project::class.java.simpleName)

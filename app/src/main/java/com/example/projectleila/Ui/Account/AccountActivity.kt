@@ -4,13 +4,18 @@ import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import com.example.projectleila.Dao.UserDao
 import com.example.projectleila.Poko.User
 import com.example.projectleila.R
+import com.example.projectleila.Ui.Chef.ChefDeProjectActivity
+import com.example.projectleila.Ui.Responsable.ResponsableQActivity
+import com.example.projectleila.Ui.TChantier.TChantierActivity
 import com.example.projectleila.Ui.UserType
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_account.*
@@ -22,14 +27,24 @@ class AccountActivity : AppCompatActivity() {
     enum class AccountStatus(var status: String) {
         LOGIN("login"), SIGNUP("signup")
     }
+
+    companion object{
+       val INSTANCE=AccountActivity()
+
+    }
     var status: AccountStatus = AccountStatus.LOGIN
-    fun Gotohomepage() {startActivity(Intent(this.baseContext, UserType::class.java)) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
         supportActionBar!!.hide()
         //init dao
+
+        var myintet=getIntent()
+        val type=  myintet.getIntExtra("type",0)
+       // Toast.makeText(this, "data : "+type, Toast.LENGTH_SHORT).show()
+
         usedao = UserDao()
         ParseUser.logOut()
         //init PrgDialog
@@ -39,7 +54,14 @@ class AccountActivity : AppCompatActivity() {
        // btnSignupLogin.text = AccountStatus.LOGIN.toString()
        // textViewSignupLogin.text = AccountStatus.SIGNUP.toString()
         if (usedao?.checkLoggedIn()!!){
-            Gotohomepage()
+            Gotohomepage(type)
+        }
+
+        txtAdmin.setOnClickListener {
+            var link ="https://amenhyd.admin.back4app.com/"
+            val intent=Intent(Intent.ACTION_VIEW)
+            intent.data=Uri.parse(link)
+            startActivity(intent)
         }
     }
 
@@ -95,13 +117,32 @@ class AccountActivity : AppCompatActivity() {
     fun Login(user:User){
         progdialog?.show()
         var user = User(textUsername.text.toString(), textPassword.text.toString(), "", "")
+        if (user.userName!!.isEmpty()|| user.password!!.isEmpty()){
+            progdialog?.hide()
+            Toast.makeText(this, "username or password is empty", Toast.LENGTH_SHORT).show()
+        }
         usedao?.LogInWithCallback(user, { returnedUser ->
             progdialog?.hide()
-            if (returnedUser.userName != null) {
+            if (returnedUser.userName != null && returnedUser.password!=null) {
                 //Go to home page
-                Gotohomepage()
+                var myintet=getIntent()
+                val type=  myintet.getIntExtra("type",0)
+                Gotohomepage(type)
+            }else{
+                progdialog?.hide()
+                Toast.makeText(this, "something wrong", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    fun Gotohomepage(data:Int) {
+        if (data==1){
+            startActivity(Intent(this.baseContext, ChefDeProjectActivity::class.java))
+        }else if(data==2){
+            startActivity(Intent(this.baseContext, TChantierActivity::class.java))
+        }else{
+            startActivity(Intent(this.baseContext, ResponsableQActivity::class.java))
+        }
+
     }
 
 }

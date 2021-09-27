@@ -65,7 +65,7 @@
                 android:text="Type :"
                 />
             <TextView
-                android:id="@+id/phoneNumber"
+                android:id="@+id/txtHT2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -88,7 +88,7 @@
                 android:text="H Travail :"
                 />
             <TextView
-                android:id="@+id/wilayaName"
+                android:id="@+id/htravaille"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -111,7 +111,7 @@
                 android:text="H Arret :"
                 />
             <TextView
-                android:id="@+id/ha"
+                android:id="@+id/txtHa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -150,6 +150,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btnOk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -160,17 +161,7 @@
                 android:onClick="doEvnt"
                 android:text="OK"
                 />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/circle"
-                android:backgroundTint="@android:color/darker_gray"
-                android:layout_margin="20dp"
-                android:layout_marginTop="20dp"
-                android:onClick="doEvnt"
-                android:text="Cancel"
-                />
+
         </LinearLayout>
 
 

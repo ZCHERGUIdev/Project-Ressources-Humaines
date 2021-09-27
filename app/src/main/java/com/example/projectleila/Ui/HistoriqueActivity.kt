@@ -1,11 +1,13 @@
 package com.example.projectleila.Ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.projectleila.Dao.ProjectDao
 import com.example.projectleila.Poko.Project
@@ -20,6 +22,11 @@ class HistoriqueActivity : AppCompatActivity() {
     var listOfProjectString=ArrayList<String>()
     var adapter: ArrayAdapter<String>?=null
     var code=ArrayList<String>()
+    var type=ArrayList<String>()
+    var HT=ArrayList<String>()
+    var Ha=ArrayList<String>()
+    var HaCause=ArrayList<String>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +38,19 @@ class HistoriqueActivity : AppCompatActivity() {
         // get project
         adapter= ArrayAdapter(this.baseContext,R.layout.projectviewcell,R.id.txtTip,listOfProjectString)
         lstProjectHisto.adapter=adapter
-
+        Toast.makeText(this, "code :"+code+"htaiveail:"+HT, Toast.LENGTH_SHORT).show()
         lstProjectHisto.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
             var view:View
             view=layoutInflater.inflate(R.layout.info_worker,null)
             view.txtProjectNumber.text="Project "+i
             view.codevalue.text=code[i]
+            view.txtHT2.text=type[i]
+            view.htravaille.text=HT[i]
+            view.txtHa.text=Ha[i]
+            view.hacause.text=HaCause[i]
+            view.btnOk.setOnClickListener{
+                startActivity(Intent(this,HistoriqueActivity::class.java))
+            }
             showAlertDialog(view)
         })
         getProject()
@@ -49,6 +63,12 @@ class HistoriqueActivity : AppCompatActivity() {
         //view.setBackgroundResource(R.color.tras)
         dialog.create()
         dialog.show()
+
+    }
+
+
+    fun doEvnt(view: View){
+        Toast.makeText(this, "All Done", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -66,6 +86,10 @@ class HistoriqueActivity : AppCompatActivity() {
 
                     listOfProjectString.add("Project "+ i)
                     code.add(listoforders[i].COD_MR.toString())
+                    type.add(listoforders[i].TYP_RESSOURCE.toString())
+                    HT.add(listoforders[i].HT.toString())
+                    Ha.add(listoforders[i].HA.toString())
+                    HaCause.add(listoforders[i].C.toString())
 
 
 

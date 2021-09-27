@@ -1,18 +1,24 @@
 package com.example.projectleila.Dao
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.util.Log
 import android.widget.Toast
 import com.example.projectleila.Poko.User
+import com.example.projectleila.Ui.Account.AccountActivity
 import com.parse.ParseException
 import com.parse.ParseObject
 import com.parse.ParseUser
 import com.parse.SignUpCallback
+import kotlin.reflect.KParameter
 
 class UserDao {
 
     var parseuser:ParseUser?=null
     var progdialog: ProgressDialog? = null
+
+
 
     constructor() {
         parseuser= ParseUser()
@@ -70,8 +76,8 @@ class UserDao {
                     Log.i("singin","sign in succesfully")
                     Callback(tosinglerecord(pUser,user.password.toString()))
                 }else{
-                  //  Toast.makeText(, " something wrong", Toast.LENGTH_SHORT).show()
-                    Callback(User())
+              //    showAlertDialog("ggg","aa")
+                    //Callback(User())
                 }
             })
 
@@ -107,6 +113,15 @@ class UserDao {
       //  user.location=parseUser.getParseGeoPoint("Location")
 
         return user
+    }
+
+    private fun showAlertDialog(s: String, s1: String) {
+        val show = AlertDialog.Builder(AccountActivity.INSTANCE)
+            .setTitle(s).setMessage(s1)
+            .setMessage(s1)
+            .setPositiveButton(android.R.string.ok) { dialog: DialogInterface?, which: Int -> }
+            .setNegativeButton(android.R.string.cancel) { dialog: DialogInterface?, which: Int -> }
+            .setIcon(android.R.drawable.ic_dialog_alert).show()
     }
 
 

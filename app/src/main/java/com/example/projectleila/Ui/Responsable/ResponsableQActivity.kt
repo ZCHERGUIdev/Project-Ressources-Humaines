@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import com.example.projectleila.Dao.ProjectDao
 import com.example.projectleila.Poko.Project
 import com.example.projectleila.R
+import com.example.projectleila.Ui.HistoriqueActivity
 import com.example.projectleila.Ui.LotssActivity
 import kotlinx.android.synthetic.main.activity_tchantier.*
 
@@ -39,6 +40,11 @@ class ResponsableQActivity : AppCompatActivity() {
         adapter= ArrayAdapter(this.baseContext,R.layout.projectviewcell,R.id.txtTip,listOfProjectString)
         lstProject.adapter=adapter
         getProject()
+        listOfProjectString!!.add("Finding Project...")
+        lstProject.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, i, id ->
+            var myintet = Intent(this.baseContext, HistoriqueActivity::class.java)
+            startActivity(myintet)
+        })
     }
 
 
