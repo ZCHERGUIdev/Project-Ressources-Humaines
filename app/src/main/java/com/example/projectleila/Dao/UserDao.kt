@@ -96,7 +96,6 @@ class UserDao {
                     //done
                     Log.i("app","sign up succesfully")
                     Callback(user)
-
                 }else{
                     Log.e("Signup","Failed"+e.message.toString())
                     Callback(User())

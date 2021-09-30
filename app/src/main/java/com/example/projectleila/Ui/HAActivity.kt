@@ -46,9 +46,9 @@ class HAActivity : AppCompatActivity() {
                             override fun done(`object`: ParseObject?, e: ParseException?) {
                                 if (e == null) {
                                     if (txtHarret.text.isEmpty() ){
-                                        Toast.makeText(this@HAActivity, "pleaze entre nbr arret", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this@HAActivity, "Entre nbr heure d'arrét", Toast.LENGTH_SHORT).show()
                                     }else if(txtCause.text.isEmpty()){
-                                        Toast.makeText(this@HAActivity, "pleaze entre raison", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this@HAActivity, "Veuillez remplir les champs", Toast.LENGTH_SHORT).show()
 
                                     }else{
                                         `object`!!.put("HA", txtHarret.text.toString()+" ")
