@@ -16,7 +16,9 @@
         <activity android:name=".Ui.HAActivity"></activity>
         <activity android:name=".Ui.HTActivity" />
         <activity android:name=".Ui.LotssActivity" />
-        <activity android:name=".Ui.HMORHAActivity" />
+        <activity android:name=".Ui.HMORHAActivity" >
+
+        </activity>
         <activity android:name=".Ui.TChantier.TChantierActivity"></activity>
         <activity android:name=".Ui.Responsable.ResponsableQActivity" />
         <activity android:name=".Ui.Chef.ChefDeProjectActivity" >

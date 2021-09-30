@@ -14,7 +14,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Entre Num Heure T"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

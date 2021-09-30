@@ -59,16 +59,20 @@ class HTActivity : AppCompatActivity() {
                         query.getInBackground(objectID, object : GetCallback<ParseObject> {
                             override fun done(`object`: ParseObject?, e: ParseException?) {
                                 if (e == null) {
+                                    if (txtHT.text.isEmpty()){
+                                     Toast.makeText(this@HTActivity, "pleaze entre nbr heure", Toast.LENGTH_SHORT).show()
+                                    }else{
+                                        `object`!!.put("HT", txtHT.text.toString()+" h")
+                                        `object`.saveInBackground(object : SaveCallback {
+                                            override fun done(e: ParseException?) {
+                                                Toast.makeText(this@HTActivity, "done", Toast.LENGTH_SHORT).show()
+                                                startActivity(Intent(this@HTActivity,
+                                                    TChantierActivity::class.java))
+                                            }
 
-                                    `object`!!.put("HT", txtHT.text.toString())
-                                    `object`.saveInBackground(object : SaveCallback {
-                                        override fun done(e: ParseException?) {
-                                            Toast.makeText(this@HTActivity, "done", Toast.LENGTH_SHORT).show()
-                                            startActivity(Intent(this@HTActivity,
-                                                TChantierActivity::class.java))
-                                        }
+                                        })
+                                    }
 
-                                    })
                                 }
                             }
 
@@ -90,6 +94,8 @@ class HTActivity : AppCompatActivity() {
         ParseUser.logOut()
         startActivity(Intent(this, AccountActivity::class.java))
     }
+
+
 
 
 }

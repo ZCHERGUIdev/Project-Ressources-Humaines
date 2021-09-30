@@ -45,18 +45,25 @@ class HAActivity : AppCompatActivity() {
                         query.getInBackground(objectID, object : GetCallback<ParseObject> {
                             override fun done(`object`: ParseObject?, e: ParseException?) {
                                 if (e == null) {
+                                    if (txtHarret.text.isEmpty() ){
+                                        Toast.makeText(this@HAActivity, "pleaze entre nbr arret", Toast.LENGTH_SHORT).show()
+                                    }else if(txtCause.text.isEmpty()){
+                                        Toast.makeText(this@HAActivity, "pleaze entre raison", Toast.LENGTH_SHORT).show()
 
-                                    `object`!!.put("HA", txtHarret.text.toString())
-                                    `object`!!.put("C", txtCause.text.toString())
+                                    }else{
+                                        `object`!!.put("HA", txtHarret.text.toString()+" ")
+                                        `object`!!.put("C", txtCause.text.toString())
 
-                                    `object`.saveInBackground(object : SaveCallback {
-                                        override fun done(e: ParseException?) {
-                                            Toast.makeText(this@HAActivity, "done", Toast.LENGTH_SHORT).show()
-                                            txtHarret.text.clear()
-                                            txtCause.text.clear()
-                                        }
+                                        `object`.saveInBackground(object : SaveCallback {
+                                            override fun done(e: ParseException?) {
+                                                Toast.makeText(this@HAActivity, "done", Toast.LENGTH_SHORT).show()
+                                                txtHarret.text.clear()
+                                                txtCause.text.clear()
+                                            }
 
-                                    })
+                                        })
+                                    }
+
                                 }
                             }
 
