@@ -42,7 +42,7 @@ class AccountActivity : AppCompatActivity() {
         //init dao
 
         var myintet=getIntent()
-        val type=  myintet.getIntExtra("type",0)
+        val type=  myintet.getStringExtra("type")
        // Toast.makeText(this, "data : "+type, Toast.LENGTH_SHORT).show()
 
         usedao = UserDao()
@@ -54,7 +54,7 @@ class AccountActivity : AppCompatActivity() {
        // btnSignupLogin.text = AccountStatus.LOGIN.toString()
        // textViewSignupLogin.text = AccountStatus.SIGNUP.toString()
         if (usedao?.checkLoggedIn()!!){
-            Gotohomepage(type)
+            Gotohomepage(type!!)
         }
 
         txtAdmin.setOnClickListener {
@@ -116,7 +116,9 @@ class AccountActivity : AppCompatActivity() {
     }
     fun Login(user:User){
         progdialog?.show()
-        var user = User(textUsername.text.toString(), textPassword.text.toString(), "", "")
+        var myintet=getIntent()
+        val type=  myintet.getStringExtra("type")
+        var user = User(textUsername.text.toString(), textPassword.text.toString(), "", "",type!!)
         if (user.userName!!.isEmpty()|| user.password!!.isEmpty()){
             progdialog?.hide()
             Toast.makeText(this, "username or password is empty", Toast.LENGTH_SHORT).show()
@@ -126,18 +128,18 @@ class AccountActivity : AppCompatActivity() {
             if (returnedUser.userName != null && returnedUser.password!=null) {
                 //Go to home page
                 var myintet=getIntent()
-                val type=  myintet.getIntExtra("type",0)
-                Gotohomepage(type)
+                val type=  myintet.getStringExtra("type")
+                Gotohomepage(type!!)
             }else{
                 progdialog?.hide()
                 Toast.makeText(this, "something wrong", Toast.LENGTH_SHORT).show()
             }
         })
     }
-    fun Gotohomepage(data:Int) {
-        if (data==1){
+    fun Gotohomepage(data:String) {
+        if (data=="chef"){
             startActivity(Intent(this.baseContext, ChefDeProjectActivity::class.java))
-        }else if(data==2){
+        }else if(data=="tchantier"){
             startActivity(Intent(this.baseContext, TChantierActivity::class.java))
         }else{
             startActivity(Intent(this.baseContext, ResponsableQActivity::class.java))

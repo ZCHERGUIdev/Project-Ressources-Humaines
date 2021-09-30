@@ -11,13 +11,13 @@ import com.example.projectleila.Ui.TChantier.TChantierActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class UserType : AppCompatActivity() {
-    var ccproject:Int=1
+    var ccproject:String="chef"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    var ttqualité=2
-    var rrespoQali=3
+    var ttqualité="tchantier"
+    var rrespoQali="rcontrol"
         supportActionBar!!.hide()
         cproject.setOnClickListener {
           var myintet=Intent(this@UserType, AccountActivity::class.java)

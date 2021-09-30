@@ -20,16 +20,16 @@
         <activity android:name=".Ui.TChantier.TChantierActivity"></activity>
         <activity android:name=".Ui.Responsable.ResponsableQActivity" />
         <activity android:name=".Ui.Chef.ChefDeProjectActivity" >
+
+        </activity>
+        <activity android:name=".Ui.Account.AccountActivity">
+        </activity>
+        <activity android:name=".Ui.UserType" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Ui.Account.AccountActivity">
-        </activity>
-        <activity android:name=".Ui.UserType" >
-
         </activity>
     </application>
 

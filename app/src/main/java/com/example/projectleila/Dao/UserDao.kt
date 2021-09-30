@@ -61,7 +61,7 @@ class UserDao {
         }
         return false
     }
-    fun tosinglerecord(parseUser:ParseUser,pass:String):User{
+    fun tosinglerecord(parseUser:ParseUser,pass:String,):User{
         var user=User()
         user.ObjectId=parseUser.objectId
         user.userName=parseUser.username
@@ -70,9 +70,12 @@ class UserDao {
     }
 
     fun LogInWithCallback(user: User, Callback: (returnedUser:User)->Unit) {
+
         ParseUser.logInInBackground(user.userName,user.password,
+
             {pUser,ex->
-                if (pUser!=null){
+                var type =pUser.get("status")
+                if (pUser!=null &&type==user.status){
                     Log.i("singin","sign in succesfully")
                     Callback(tosinglerecord(pUser,user.password.toString()))
                 }else{
