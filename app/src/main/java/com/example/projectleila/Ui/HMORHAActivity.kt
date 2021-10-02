@@ -21,6 +21,8 @@ class HMORHAActivity : AppCompatActivity() {
         val type= myintet.getStringExtra("type")
         val userType= myintet.getStringExtra("userType")
         val HT= myintet.getStringExtra("HT")
+        val C= myintet.getStringExtra("C")
+        val Harret= myintet.getStringExtra("HA")
         val date= myintet.getStringExtra("date")
 
        // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
@@ -40,6 +42,8 @@ class HMORHAActivity : AppCompatActivity() {
             myintet.putExtra("code",code)
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
+            myintet.putExtra("HA",Harret)
+            myintet.putExtra("C",C)
             myintet.putExtra("date",date)
             startActivity(myintet)
         }

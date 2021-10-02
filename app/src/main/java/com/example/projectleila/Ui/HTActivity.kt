@@ -15,27 +15,32 @@ import com.example.projectleila.R
 import com.example.projectleila.Ui.Account.AccountActivity
 import com.example.projectleila.Ui.TChantier.TChantierActivity
 import com.parse.*
+import kotlinx.android.synthetic.main.activity_historique.*
 import kotlinx.android.synthetic.main.activity_htactivity.*
 import kotlinx.android.synthetic.main.activity_tchantier.*
 
 
 class HTActivity : AppCompatActivity() {
     var projectDao: ProjectDao? = null
+
     var listOfProject=ArrayList<Project>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_htactivity)
         var myintet=getIntent()
+
         val objId= myintet.getStringExtra("objId")
         val code= myintet.getStringExtra("code")
         val type= myintet.getStringExtra("type")
         val userType= myintet.getStringExtra("userType")
         val HT= myintet.getStringExtra("HT")
         val date= myintet.getStringExtra("date")
-
+     //   Toast.makeText(this.applicationContext, ":" +heureT, Toast.LENGTH_SHORT).show()
         if (userType=="chefProject"){
-            //txtHT.text.replace(0,txtHT.textSize.toInt(),HT.toString())
+            if (HT!=null){
+                txtHT.setText(HT.toString())
+            }
             btnValider.visibility= View.VISIBLE
         }else if(userType=="tchantier"){
 
@@ -94,6 +99,8 @@ class HTActivity : AppCompatActivity() {
         ParseUser.logOut()
         startActivity(Intent(this, AccountActivity::class.java))
     }
+
+
 
 
 

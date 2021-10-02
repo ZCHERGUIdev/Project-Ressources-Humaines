@@ -24,6 +24,8 @@ class ChefDeProjectActivity : AppCompatActivity() {
     var phase=ArrayList<String>()
     var objIds=ArrayList<String>()
     var HT=ArrayList<String>()
+    var HA=ArrayList<String>()
+    var cause=ArrayList<String>()
     var date=ArrayList<String>()
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
@@ -42,10 +44,12 @@ class ChefDeProjectActivity : AppCompatActivity() {
             myintet.putExtra("num tach",tachs[i])
             myintet.putExtra("code",code[i])
             myintet.putExtra("type",type[i])
-
+           // Toast.makeText(this, "HT :"+HT[i], Toast.LENGTH_SHORT).show()
             myintet.putExtra("objId",objIds[i])
             myintet.putExtra("phase",phase[i])
-            myintet.putExtra("HA",HT[i])
+            myintet.putExtra("HT",HT[i])
+            myintet.putExtra("HA",HA[i])
+            myintet.putExtra("C",cause[i])
             myintet.putExtra("userType",userType)
             myintet.putExtra("date",date[i])
 
@@ -76,6 +80,8 @@ class ChefDeProjectActivity : AppCompatActivity() {
                     objIds.add(listoforders[i].objectId.toString())
                     phase.add(listoforders[i].NUM_PHAS.toString())
                     HT.add(listoforders[i].HT.toString())
+                    HA.add(listoforders[i].HA.toString())
+                    cause.add(listoforders[i].C.toString())
                     date.add(listoforders[i].createdAt.toString())
                 }
                 adapter?.notifyDataSetChanged()

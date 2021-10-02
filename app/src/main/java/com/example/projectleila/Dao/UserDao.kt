@@ -16,12 +16,12 @@ import kotlin.reflect.KParameter
 class UserDao {
 
     var parseuser:ParseUser?=null
-    var progdialog: ProgressDialog? = null
 
 
 
     constructor() {
         parseuser= ParseUser()
+
     }
 
     //sign up=regester=new account
@@ -72,15 +72,21 @@ class UserDao {
     fun LogInWithCallback(user: User, Callback: (returnedUser:User)->Unit) {
 
         ParseUser.logInInBackground(user.userName,user.password,
-
             {pUser,ex->
-                var type =pUser.get("status")
-                if (pUser!=null &&type==user.status){
-                    Log.i("singin","sign in succesfully")
-                    Callback(tosinglerecord(pUser,user.password.toString()))
+
+
+                if (pUser!=null && ex==null){
+                    var type =pUser.get("status")
+                    if(type==user.status){
+                        Log.i("singin","sign in succesfully")
+                        Callback(tosinglerecord(pUser,user.password.toString()))
+                       AccountActivity.INSTANCE.progdialog!!.hide()
+                    }
+
                 }else{
-              //    showAlertDialog("ggg","aa")
-                    //Callback(User())
+                    AccountActivity.INSTANCE.progdialog!!.hide()
+                   Toast.makeText(AccountActivity.INSTANCE.baseContext, "User Not Register", Toast.LENGTH_SHORT).show()
+                //Callback(User())
                 }
             })
 
@@ -117,14 +123,14 @@ class UserDao {
         return user
     }
 
-    private fun showAlertDialog(s: String, s1: String) {
-        val show = AlertDialog.Builder(AccountActivity.INSTANCE)
+   /* private fun showAlertDialog(s: String, s1: String) {
+        val show = AlertDialog.Builder(AccountActivity.INSTANCE.applicationContext)
             .setTitle(s).setMessage(s1)
             .setMessage(s1)
             .setPositiveButton(android.R.string.ok) { dialog: DialogInterface?, which: Int -> }
             .setNegativeButton(android.R.string.cancel) { dialog: DialogInterface?, which: Int -> }
             .setIcon(android.R.drawable.ic_dialog_alert).show()
-    }
+    }*/
 
 
 

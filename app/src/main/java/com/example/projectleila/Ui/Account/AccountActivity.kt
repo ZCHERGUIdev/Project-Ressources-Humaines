@@ -29,8 +29,8 @@ class AccountActivity : AppCompatActivity() {
     }
 
     companion object{
-       val INSTANCE=AccountActivity()
-
+       lateinit var INSTANCE:AccountActivity
+       private set
     }
     var status: AccountStatus = AccountStatus.LOGIN
 
@@ -39,6 +39,8 @@ class AccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
         supportActionBar!!.hide()
+        //init singlton
+        INSTANCE=this
         //init dao
 
         var myintet=getIntent()
@@ -115,7 +117,7 @@ class AccountActivity : AppCompatActivity() {
             .setIcon(android.R.drawable.ic_dialog_alert).show()
     }
     fun Login(user:User){
-        progdialog?.show()
+       progdialog?.show()
         var myintet=getIntent()
         val type=  myintet.getStringExtra("type")
         var user = User(textUsername.text.toString(), textPassword.text.toString(), "", "",type!!)

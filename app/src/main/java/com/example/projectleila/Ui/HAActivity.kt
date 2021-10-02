@@ -23,14 +23,16 @@ class HAActivity : AppCompatActivity() {
         val type= myintet.getStringExtra("type")
         val userType= myintet.getStringExtra("userType")
         val date= myintet.getStringExtra("date")
+        val Haret= myintet.getStringExtra("HA")
+        val C= myintet.getStringExtra("C")
        // Toast.makeText(this, "user  "+userType, Toast.LENGTH_SHORT).show()
 
         txtCode2.text=""+code
         txtType2.text=" "+type
         txtDate2.text="Date :"+date!!.subSequence(0,20)
         if (userType=="chefProject"){
-            txtHarret.text=txtHarret.text
-            txtCause.text=txtCause.text
+            txtHarret.setText(Haret)
+            txtCause.setText(C)
             btnValid2.visibility= View.VISIBLE
         }
 

@@ -33,9 +33,11 @@ class LotssActivity : AppCompatActivity() {
      val phase= myintet.getStringExtra("phase")
      val userType= myintet.getStringExtra("userType")
      val HT= myintet.getStringExtra("HT")
+     val HA= myintet.getStringExtra("HA")
+     val C= myintet.getStringExtra("C")
      val date= myintet.getStringExtra("date")
 
-    // Toast.makeText(this, "date  "+date, Toast.LENGTH_SHORT).show()
+     Toast.makeText(this, "HT  "+C, Toast.LENGTH_SHORT).show()
 
 
         txtNumLot.text="List De Lots (1)"
@@ -61,7 +63,9 @@ class LotssActivity : AppCompatActivity() {
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
             myintet.putExtra("HT",HT)
+            myintet.putExtra("HA",HA)
             myintet.putExtra("date",date)
+            myintet.putExtra("C",C)
 
             startActivity(myintet)
         })
@@ -72,6 +76,7 @@ class LotssActivity : AppCompatActivity() {
             myintet.putExtra("type",type)
             myintet.putExtra("userType",userType)
             myintet.putExtra("date",date)
+
             startActivity(myintet)
         })
 
