@@ -60,7 +60,7 @@ class AccountActivity : AppCompatActivity() {
         }
 
         txtAdmin.setOnClickListener {
-            var link ="https://amenhyd.admin.back4app.com/"
+            var link ="https://amenhyd1.admin.back4app.com/"
             val intent=Intent(Intent.ACTION_VIEW)
             intent.data=Uri.parse(link)
             startActivity(intent)

@@ -14,8 +14,8 @@ class App:Application() {
         Parse.enableLocalDatastore(this)
         Parse.initialize(
             Parse.Configuration.Builder(this)
-                .applicationId("1meepQhGegk0jVeBcFvOCrW6CUDOE31egQhXEXTJ") // if defined
-                .clientKey("eUUOHkRNe6sQCBKu5anLtnv59wwbYlzb2EuS9sej")
+                .applicationId("egTCEGDDRb9cruKVcnICmJWYgIIVLLNY5Ff7UE19") // if defined
+                .clientKey("djupD3XKA3Ckp8NNyLW6TdtpUoP3lFEfapAEhzcj")
                 .server("https://parseapi.back4app.com")
                 .build()
         )
