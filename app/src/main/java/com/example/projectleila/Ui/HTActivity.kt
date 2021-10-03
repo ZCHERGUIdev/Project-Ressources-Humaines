@@ -43,7 +43,7 @@ class HTActivity : AppCompatActivity() {
             }
             btnValider.visibility= View.VISIBLE
         }else if(userType=="tchantier"){
-
+            txtHT.setText(" ")
         }
 
         txtCode.text=""+code

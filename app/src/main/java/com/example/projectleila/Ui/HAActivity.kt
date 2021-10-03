@@ -53,7 +53,7 @@ class HAActivity : AppCompatActivity() {
                                         Toast.makeText(this@HAActivity, "Veuillez remplir les champs", Toast.LENGTH_SHORT).show()
 
                                     }else{
-                                        `object`!!.put("HA", txtHarret.text.toString()+" ")
+                                        `object`!!.put("HA", txtHarret.text.toString()+" h")
                                         `object`!!.put("C", txtCause.text.toString())
 
                                         `object`.saveInBackground(object : SaveCallback {

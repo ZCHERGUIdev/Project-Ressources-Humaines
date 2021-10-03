@@ -20,6 +20,10 @@ class TChantierActivity : AppCompatActivity() {
     var code=ArrayList<String>()
     var type=ArrayList<String>()
     var phase=ArrayList<String>()
+    var HT=ArrayList<String>()
+    var HA=ArrayList<String>()
+    var cause=ArrayList<String>()
+    var date=ArrayList<String>()
     var objIds=ArrayList<String>()
     var listOfProject=ArrayList<Project>()
     var listOfProjectString=ArrayList<String>()
@@ -44,6 +48,9 @@ class TChantierActivity : AppCompatActivity() {
             myintet.putExtra("objId",objIds[i])
             myintet.putExtra("phase",phase[i])
             myintet.putExtra("userType",userType)
+            myintet.putExtra("HA",HA[i])
+            myintet.putExtra("HT",HT[i])
+            myintet.putExtra("date",date[i])
 
             startActivity(myintet)
         })
@@ -72,6 +79,11 @@ class TChantierActivity : AppCompatActivity() {
                     type.add(listoforders[i].TYP_RESSOURCE.toString())
                     objIds.add(listoforders[i].objectId.toString())
                     phase.add(listoforders[i].NUM_PHAS.toString())
+                    HT.add(listoforders[i].HT.toString())
+                    HA.add(listoforders[i].HA.toString())
+                    cause.add(listoforders[i].C.toString())
+                    date.add(listoforders[i].createdAt.toString())
+
                 }
                 adapter?.notifyDataSetChanged()
 
